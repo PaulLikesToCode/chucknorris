@@ -11,27 +11,26 @@
 		<h1>Think you can be Chuck Norris?</h1>
 	</div>
 	</br>
-	<div ng-controller="getRandomFact">
-		<div class='col-md-6 text-center'>
-			<form ng-submit="getQuote()">
-				<input type="text" ng-model="person.first_name">
-				<input type="text" ng-model="person.last_name">
-				<input type="submit" value="Get Quote!" />
-			</form>
-			</br>
-			{{ quote }}
-			</br>
-			<input type="button" ng-click="saveQuote()" value="Save Quote"></input>
-		</div>
-		<div class='col-md-6 text-center' ng-model="quotes">
-			<h1>Here's another div</h1>
-			<div>
-				<ul>
-					<li ng-repeat="quote in quotes">{{quote}}</li>
+	<div ng-controller="getRandomFact" class='col-md-6 text-center'>
+		<input type="button" ng-click="getChuckQuote()" value="Get Quote!" />
+		<form ng-submit="getCustomQuote()">
+			<input type="text" ng-model="person.first_name" required>
+			<input type="text" ng-model="person.last_name" required>
+			<input type="submit" value="Get Quote!" />
+		</form>
+		</br>
+		{{ quote }}
+		</br>
+		<input type="button" ng-click="saveQuote()" value="Save Quote"></input>
+	</div>
+	<div class='col-md-6 text-center' ng-model="quotes" ng-controller="showQuotes">
+		<h1>Your Saved Quotes</h1>
+		<div>
+			<ul>
+				<li ng-repeat="quote in quotes">{{quote}} -- <a ng-click="removeQuote()">remove</a></li>
 
-				</ul>
-			<div>
-		</div>
+			</ul>
+		<div>
 	</div>
 </body>
 </html>
