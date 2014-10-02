@@ -35,4 +35,7 @@ app.controller('getRandomFact', ['$scope', '$http', 'quotes', function($scope, $
 app.controller('showQuotes', ['$scope', 'quotes', function($scope, quotes) {
 	$scope.quotes = quotes.quotes;
 
+	$scope.removeQuote = function(index) {
+		$scope.quotes.splice(index, 1);	
+	}
 }]);

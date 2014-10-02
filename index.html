@@ -27,7 +27,7 @@
 		<h1>Your Saved Quotes</h1>
 		<div>
 			<ul>
-				<li ng-repeat="quote in quotes">{{quote}} -- <a ng-click="removeQuote()">remove</a></li>
+				<li ng-repeat="quote in quotes">{{quote}} -- <a ng-click="removeQuote($index)">remove</a></li>
 
 			</ul>
 		<div>
