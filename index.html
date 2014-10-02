@@ -1,0 +1,37 @@
+<!doctype html>
+<html ng-app="chucknorris">
+<head>
+	<title>You Too Can Be Chuck Norris</title>
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css"></link>
+	<script src="js/angularmin.js"></script>
+	<script src="js/app.js"></script>
+</head>
+<body>
+	<div class="text-center">
+		<h1>Think you can be Chuck Norris?</h1>
+	</div>
+	</br>
+	<div ng-controller="getRandomFact">
+		<div class='col-md-6 text-center'>
+			<form ng-submit="getQuote()">
+				<input type="text" ng-model="person.first_name">
+				<input type="text" ng-model="person.last_name">
+				<input type="submit" value="Get Quote!" />
+			</form>
+			</br>
+			{{ quote }}
+			</br>
+			<input type="button" ng-click="saveQuote()" value="Save Quote"></input>
+		</div>
+		<div class='col-md-6 text-center' ng-model="quotes">
+			<h1>Here's another div</h1>
+			<div>
+				<ul>
+					<li ng-repeat="quote in quotes">{{quote}}</li>
+
+				</ul>
+			<div>
+		</div>
+	</div>
+</body>
+</html>
