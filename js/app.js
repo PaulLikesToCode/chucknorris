@@ -1,12 +1,21 @@
 var app = angular.module('chucknorris', ['ngRoute', 'ui.bootstrap']);
 
-
 app.factory('quotes', [function() {
 	var q = {
 		quotes: []
 	};
 	return q;
 }]);
+
+app.controller('ModalDemoCtrl', function($scope, $modal) {
+
+  $scope.open = function() {
+
+    var modalInstance = $modal.open({
+      templateUrl: 'myModalContent.html',
+    });
+	};
+});
 
 app.controller('facebook', ['$scope', function($scope) {
 	$scope.getFriends = function() {
@@ -15,9 +24,9 @@ app.controller('facebook', ['$scope', function($scope) {
     		function (response) {
       		if (response && !response.error) {
         		console.log(response);
-      	}
-    }
-);
+      			}
+   			}
+		);
 	}
 }]);
 
@@ -53,3 +62,8 @@ app.controller('showQuotes', ['$scope', 'quotes', function($scope, quotes) {
 		$scope.quotes.splice(index, 1);	
 	}
 }]);
+
+
+
+
+
