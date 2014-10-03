@@ -1,33 +1,68 @@
 <!doctype html>
 <html ng-app="chucknorris">
 <head>
+	<meta charset="UTF-8">
 	<title>You Too Can Be Chuck Norris</title>
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css"></link>
+	<link href="css/bootstrap2.css" rel="stylesheet" type="text/css"></link>
+	<link href="css/app.css" rel="stylesheet" type="text/css"></link>
+	<script src="js/facebook.js"></script>
 	<script src="js/angularmin.js"></script>
+	<script src="js/angular-route.js"></script>
+	<script src="js/ui-bootstrap.js"></script>
 	<script src="js/app.js"></script>
 </head>
 <body>
-	<div class="text-center">
-		<h1>Think you can be Chuck Norris?</h1>
+	<div class="navbar navbar-default">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">You Too Can Be Chuck Norris</a>
+		</div>
+		<div style="" class="navbar-collapse navbar-responsive-collapse collapse in">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="">About</a></li>
+			</ul>
+		</div>
+		<!--fb:login-button scope="public_profile,email" autologoutlink="true" onlogin="checkLoginState();">
+		</fb:login-button>
+		<!-- <div id="status">
+		</div> -->
+		<!--input type="button" ng-controller="facebook" onClick="getFriends()" value="Pick a Facebook Friends" /-->
 	</div>
 	</br>
-	<div ng-controller="getRandomFact" class='col-md-6 text-center'>
-		<input type="button" ng-click="getChuckQuote()" value="Get Quote!" />
-		<form ng-submit="getCustomQuote()">
-			<input type="text" ng-model="person.first_name" required>
-			<input type="text" ng-model="person.last_name" required>
-			<input type="submit" value="Get Quote!" />
+	<div ng-controller="getRandomFact" class='col-sm-6 text-center'>
+		<p>
+			<input class="btn btn-primary btn-lg" type="button" ng-click="getChuckQuote()" value="Get a Chuck Norris Quote!" />
+		</p>
+		<p>or</p>
+		<form ng-submit="getCustomQuote()" class="form-horizontal">
+			<div class="col-lg-8 col-lg-offset-2">
+				<p>
+	        		<input class="form-control" ng-model="person.first_name" placeholder="First Name" type="text" required>
+	<!-- 			<input type="text" ng-model="person.first_name" placeholder="First Name" required>
+	 -->			<input class="form-control" type="text" ng-model="person.last_name" placeholder="Last Name" required>
+	 			</p>
+ 			</div>
+ 			<p>
+				<input class="btn btn-primary btn-lg" type="submit" value="Get a Quote for a Friend!" />
+			</p>
 		</form>
-		</br>
-		{{ quote }}
-		</br>
-		<input type="button" ng-click="saveQuote()" value="Save Quote"></input>
+		<div id="quote-area">
+			<div>
+				{{ quote }}
+			</div>
+		</div>
+		<div>
+			<input class="btn btn-primary btn-lg" type="button" ng-click="saveQuote()" value="I Like This One"/>
+		</div>
 	</div>
-	<div class='col-md-6 text-center' ng-model="quotes" ng-controller="showQuotes">
+	<div id="saved-quotes" class='col-sm-6 text-center' ng-model="quotes" ng-controller="showQuotes">
 		<h1>Your Saved Quotes</h1>
 		<div>
 			<ul>
-				<li ng-repeat="quote in quotes">{{quote}} -- <a ng-click="removeQuote($index)">remove</a></li>
+				<li ng-repeat="quote in quotes"><img ng-click="removeQuote($index)" src="static/erase.png" tooltip="{{dynamicTooltip}}"></img>   {{quote}} </li>
 
 			</ul>
 		<div>
