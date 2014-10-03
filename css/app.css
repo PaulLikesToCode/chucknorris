@@ -100,9 +100,12 @@ input.form-control {
 	}
 }
 
-.navbar-default .navbar-brand {
+.navbar-default .navbar-brand, .navbar-default .navbar-brand:hover {
 	color: #ffffff;
+	cursor: default;
 }
+
+
 
 .navbar-default .navbar-nav>.active>a, 
 .navbar-default .navbar-nav>.active>a:hover, 
